@@ -2535,7 +2535,7 @@ static const EVMSchedule EIP158Schedule = []
 ```k
     syntax Schedule ::= "BYZANTIUM" [klabel(BYZANTIUM_EVM), symbol]
  // ---------------------------------------------------------------
-    rule Rb         < BYZANTIUM > => 3 *Int (10 ^Int 18)
+    rule Rb         < BYZANTIUM > => 3 *Int eth
     rule SCHEDCONST < BYZANTIUM > => SCHEDCONST < EIP158 >
       requires notBool ( SCHEDCONST ==K Rb )
 
@@ -2563,7 +2563,9 @@ static const EVMSchedule ByzantiumSchedule = []
 ```k
     syntax Schedule ::= "CONSTANTINOPLE" [klabel(CONSTANTINOPLE_EVM), symbol]
  // -------------------------------------------------------------------------
+    rule Rb         < CONSTANTINOPLE > => 2 *Int eth
     rule SCHEDCONST < CONSTANTINOPLE > => SCHEDCONST < BYZANTIUM >
+      requires notBool ( SCHEDCONST ==K Rb )
 
     rule Ghasshift       << CONSTANTINOPLE >> => true
     rule Ghasdirtysstore << CONSTANTINOPLE >> => true

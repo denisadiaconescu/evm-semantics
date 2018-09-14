@@ -262,6 +262,9 @@
           <storage>
             0 |-> 10
           </storage>
+          <origStorage>
+            0 |-> 0
+          </origStorage>
           <nonce>
             1
           </nonce>
